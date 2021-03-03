@@ -1,0 +1,269 @@
+html, body {
+    height: 100%;
+    min-height: 100%;
+    margin: 0;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+.main {
+    margin: 0;
+    width: 100%;
+    background: linear-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+}
+
+@media (max-width: 768px) {
+    .content {
+        min-width: 375px;
+        width: 100%;
+    }
+}
+
+.content {
+    width: 100%;
+    max-width: 1366px;
+    padding-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 768px) {
+    .content {
+        min-width: 375px;
+        width: 375px;
+    }
+}
+
+.header {
+    border-radius: 25px;
+    border: 2px solid hsl(0, 0%, 83%);
+    padding: 20px;
+    min-width: 50%;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+    .header {
+        min-width: 90%;
+        width: 90%;
+    }
+}
+
+.title {  
+    font-size: 24px;
+}
+
+.score {
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 10px 32px;
+    text-align: center;
+}
+
+.score__title {
+    font-size: 12px;
+}
+
+.score__value {
+    font-size: 36px;
+    padding-top: 4px;
+}
+
+.board {
+    min-width: 50%;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    background: no-repeat center;  
+    padding: 50px;
+}
+
+.board--triangle {
+    background-image: url(../images/bg-triangle.svg);
+}
+
+.step_1 {
+    width: 400px;
+    height: 350px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.display-flex {
+    display: flex;
+}
+
+.display-flex--row {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.display-flex--row-center {
+    flex-direction: row;
+    justify-content: center;
+}
+
+.display-flex--column {
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.item {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    padding: 20px;
+}
+.item:hover {
+    cursor: pointer;
+}
+
+.icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: no-repeat center;
+    background-color: hsl(0, 0%, 83%);
+}
+
+.item__scissors {
+    background: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+}
+
+.item__scissors .icon {
+    background-image: url(../images/icon-scissors.svg);
+}
+
+.item__paper {
+    background: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+}
+
+.item__paper .icon {
+    background-image: url(../images/icon-paper.svg);
+}
+
+.item__rock {
+    background: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+}
+
+.item__rock .icon {
+    background-image: url(../images/icon-rock.svg);
+}
+
+.item__lizard {
+    background: linear-gradient(hsl(261, 73%, 60%), hsl(261, 72%, 63%));
+}
+
+.item__lizard .icon {
+    background-image: url(../images/icon-lizard.svg);
+}
+
+.item__cyan {
+    background: linear-gradient(hsl(189, 59%, 53%), hsl(189, 58%, 57%)));
+}
+
+.item__cyan .icon {
+    background-image: url(../images/icon-spock.svg);
+}
+
+.text--white {
+    color: #fff;
+}
+
+.text--dark {
+    color: hsl(229, 25%, 31%);
+}
+
+.text--blue {
+    color: hsl(229, 64%, 46%);
+}
+
+.text--gray {
+    color: hsl(0, 0%, 83%);
+}
+
+.text-weight--600 {
+    font-weight: 600;
+}
+
+.text-weight--700 {
+    font-weight: 700;
+}
+
+.full-height {
+    height: 100%;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.footer {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 0 20px 20px 0;
+}
+
+.btn, .btn:hover, .btn:focus, .btn:active {
+    background-color: transparent;
+    color: hsl(0, 0%, 83%);
+    border: 2px solid hsl(0, 0%, 83%);
+    border-radius: 5px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-weight: 600;
+    outline: none;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);    
+    border-radius: 12px;
+    width: 400px;
+    height: 370px;
+    background: no-repeat center;
+    background-color: #fff;
+    background-image: url(../images/image-rules.svg);
+    padding: 20px;
+}
+
+.modal__title {
+    text-transform: uppercase;
+    font-size: 24px;
+}
+
+.modal__close {
+    width: 32px;
+    height: 32px;
+    background: no-repeat center;
+    background-image: url(../images/icon-close.svg);
+    outline: none;
+    border: none;
+}
+
+.modal__close:hover {
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
+
+.modal__close:focus {
+    outline: none;
+    border: none;
+}
+
+.hidden {
+    display: none;
+    visibility: hidden;
+}
+  
