@@ -22,13 +22,20 @@ $break-point: 768px;
 
 
 html, body {
-    height: 100%;
-    min-height: 100%;
     margin: 0;
+    padding: 0;
     font-family: 'Barlow Semi Condensed', sans-serif;
     font-weight: 600;
     color: $color-white-text;
     text-transform: uppercase;
+}
+
+html {
+    min-height:100%;
+    position:relative;
+}
+body {
+    height:100%;
 }
 
 button, button:hover, button:focus, button:active {
@@ -44,8 +51,15 @@ button:hover {
 
 .main {
     margin: 0;
-    width: 100%;
+    min-width: $width-mobile;
     background: linear-gradient($color-background-gradient);
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    overflow:hidden;
+    z-index:-1;
 
     @media (max-width: $break-point) {
         min-width: $width-mobile;
@@ -72,10 +86,13 @@ button:hover {
     width: 50%;
     margin-left: auto;
     margin-right: auto;
+    min-width: 300px;
+    max-width: 500px;
 
     @media (max-width: 768px) {
-        min-width: 90%;
-        width: 90%;
+        max-width: 500px;
+        min-width: 300px;
+        width: 80%;
     }
     
     .title {  
@@ -108,25 +125,34 @@ button:hover {
 
 
 .board {
-    min-width: 50%;
-    width: 50%;
+    width: 500px;
     margin-left: auto;
     margin-right: auto;
-    background: no-repeat center;  
-    padding: 50px;
+    background: no-repeat bottom;  
+    padding: 50px 0 0 0;
+    @media (max-width: 768px) {
+        min-width: 300px;
+        max-width: 500px;
+        width: 100%;
+    }
 
     &--triangle {
         background-image: url(../images/bg-triangle.svg);
     }
 
     .init-step {
-        width: 400px;
+        width: 500px;
         height: 350px;
         margin-left: auto;
         margin-right: auto;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+
+        @media (max-width: $break-point) {
+            min-width: 300px;
+            width: 100%;
+        }
     }
 
     .play-step {
@@ -137,12 +163,22 @@ button:hover {
         display: flex;
         flex-direction: column;
         position: relative;
+
+        @media (max-width: $break-point) {
+            min-width: 250px;
+            max-width: 400px;
+            width: 100%;
+            height: 250px;
+        }
     }
 
     &__row {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        @media (max-width: 768px) {
+            padding: 0px 30px;
+        }
 
         &--picked {
             height: 300px;
@@ -228,13 +264,25 @@ button:hover {
         display: flex;
         flex-direction: column;
         font-size: 42px;
+        @media (max-width: 768px) {
+            position: relative;
+            top: 0; 
+            left: 0; 
+            transform: none;
+            text-align: center;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+        }
     }
 
     .result span{
+        width: 50%;
         padding-bottom: 24px;
     }
 
     .play-again-btn {
+        width: 50%;
         padding: 12px 10px;
         border-radius: 5px;
         &:hover {
@@ -262,12 +310,22 @@ button:hover {
     background: no-repeat center;
     background-color: #fff;
     background-image: url(../images/image-rules.svg);
-    padding: 20px;
+
+    @media (max-width: $break-point) {
+        min-width: 300px;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        transform: none; 
+        border-radius: none;
+    }
 
     &__title {
         text-transform: uppercase;
         font-size: 24px;
         color: $color-dark-text;
+        padding: 20px 20px 0 20px;
     }
 
     &__close {
@@ -276,14 +334,23 @@ button:hover {
         background: no-repeat center;
         background-image: url(../images/icon-close.svg);
         border: none;
+        margin: 20px 20px 0 20px;
     }
 }
 
 .footer {
     display: flex;
     justify-content: flex-end;
-    width: 100%;
-    padding: 0 20px 20px 0;
+    width: 90%;
+    padding: 50px 50px 20px 0;
+    margin-left: auto;
+    margin-right: auto;
+    @media (max-width: $break-point) {
+        position: sticky;
+        bottom: 0;
+        justify-content: center;
+        padding: 50px 0;
+    }
 
     .btn-rules {
         background-color: transparent;

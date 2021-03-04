@@ -42,7 +42,6 @@ const Board = ({ move, setMove, score, setScore }) => {
     return (
         <div className="board">
             <div className="play-step">
-            { result && <Result result={result} playAgain={playAgain}></Result>}
             <div className="board__row">
                     <div className="label">You picked</div>
                     <div className="label">The House picked</div>
@@ -52,6 +51,7 @@ const Board = ({ move, setMove, score, setScore }) => {
                     <div className={`item item--${house || "empty"} ${result==="lose"?"item--winner":""}`}><div className="icon"></div></div>
                 </div>
             </div>
+            { result && <Result result={result} playAgain={playAgain}></Result>}
         </div>
     );
 }

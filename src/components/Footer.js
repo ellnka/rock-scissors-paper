@@ -9,11 +9,13 @@ const Footer = () => {
     }
 
     return (
-        <div className="footer">
+        <div>
+            <div className="footer">
+                <button className="btn-rules" onClick={showModal}>
+                    Rules
+                </button>
+            </div>
             {modalState === "opened" && <Modal setModalState = {setModalState}></Modal>}
-            <button className="btn-rules" onClick={showModal}>
-                Rules
-            </button>
         </div>
     );
 }
