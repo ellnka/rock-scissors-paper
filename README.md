@@ -1,3 +1,6 @@
+https://ellnka.github.io/rock-scissors-paper/ <--- Here you can play
+
+
 # rock-scissors-paper-react
 
 Empty project.
