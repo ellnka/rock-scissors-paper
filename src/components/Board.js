@@ -1,41 +1,43 @@
 import React, { useState, useEffect } from 'react';
 import Result from './Result';
 
-const Board = ({ move, setMove, score, setScore }) => {
-    const [house, setHouse] = useState("");
+const Board = ({ choice, setChoice, score, setScore }) => {
+    const [houseChoice, setHouseChoice] = useState("");
     const [result, setResult] = useState("");
   
-    const houseMove = () => {
+    const getHouseChoice = () => {
       const items = ["rock", "scissors", "paper"];
-      setHouse(items[Math.floor(Math.random() * 3)]);
+      setHouseChoice(items[Math.floor(Math.random() * 3)]);
     };
 
     const playAgain = () => {
-        setMove("");
+        setChoice("");
         setResult("");
-        setHouse("");
+        setHouseChoice("");
     };
   
-    useEffect(() => { houseMove(); }, []);
-    useEffect(() => { getResult(); }, [house]);
+    useEffect(() => { getHouseChoice(); }, []);
+    useEffect(() => { getResult(); }, [houseChoice]);
   
     const getResult = () => {
-      if (house === "") {
+      if (houseChoice === "") {
           return;
       }
 
-      const winner = (move === "rock" && house === "scissors") 
-                      || (move === "scissors" && house === "paper")
-                      || (move === "paper" && house === "rock");
+      const winner = (choice === "rock" && houseChoice === "scissors") 
+                      || (choice === "scissors" && houseChoice === "paper")
+                      || (choice === "paper" && houseChoice === "rock");
   
-      if (move === house) {
+      if (choice === houseChoice) {
           setResult("draw");
       } else if (winner) {
           setResult("win");
           setScore(score + 1);
       } else {
           setResult("lose");
-          setScore(score - 1);
+          if (score > 0) {
+            setScore(score - 1);
+          }
       }
     };
 
@@ -47,8 +49,8 @@ const Board = ({ move, setMove, score, setScore }) => {
                     <div className="label">The House picked</div>
                 </div>
                 <div className="board__row board__row--picked">
-                    <div className={`item item--${move} ${result==="win"?"item--winner":""}`}><div className="icon"></div></div>
-                    <div className={`item item--${house || "empty"} ${result==="lose"?"item--winner":""}`}><div className="icon"></div></div>
+                    <div className={`item item--${choice} ${result==="win"?"item--winner":""}`}><div className="icon"></div></div>
+                    <div className={`item item--${houseChoice || "empty"} ${result==="lose"?"item--winner":""}`}><div className="icon"></div></div>
                 </div>
             </div>
             { result && <Result result={result} playAgain={playAgain}></Result>}

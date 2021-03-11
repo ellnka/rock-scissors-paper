@@ -1,10 +1,10 @@
 import React from 'react';
 
-const InitBoard = ({ setMove }) => {
+const InitBoard = ({ setChoice }) => {
     
     const clickItem = (e) => {
         const itemEl = e.target.closest('.item');
-        setMove(itemEl.dataset.id);
+        setChoice(itemEl.dataset.id);
     };
 
 

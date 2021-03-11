@@ -8,12 +8,12 @@ import Footer from './components/Footer';
 
 function App() {
 
-  const [move, setMove] = useState("");
+  const [choice, setChoice] = useState("");
   const [score, setScore] = useState(0);
 // 
 
-  const board = move === "" ? <InitBoard setMove={setMove}></InitBoard> : 
-              <Board move={move}  setMove={setMove} score={score} setScore={setScore}></Board>;
+  const board = choice === "" ? <InitBoard setChoice={setChoice}></InitBoard> : 
+              <Board choice={choice}  setChoice={setChoice} score={score} setScore={setScore}></Board>;
   return (
     <>
       <div className="main">
